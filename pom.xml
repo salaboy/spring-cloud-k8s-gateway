@@ -13,7 +13,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
     <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
     <spring-cloud.version>Finchley.RC1</spring-cloud.version>
-    <spring.cloud.k8s.version>0.3.0.BUILD-SNAPSHOT</spring.cloud.k8s.version>
+    <spring.cloud.k8s.version>0.3.0.RC1</spring.cloud.k8s.version>
     <spring.boot.version>2.0.1.RELEASE</spring.boot.version>
   </properties>
   <dependencyManagement>
