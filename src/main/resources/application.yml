@@ -5,11 +5,13 @@ spring:
       discovery:
         locator:
           enabled: true
-          url-expression: "http://"
+        url-expression: 'http://'
+
 server.port: 8080
 logging:
   level:
     org.springframework.cloud.gateway: TRACE
+    org.springframework.cloud.loadbalancer: TRACE
 management:
   endpoints:
     web:
