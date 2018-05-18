@@ -10,11 +10,13 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.gateway.discovery.DiscoveryClientRouteDefinitionLocator;
 import org.springframework.cloud.gateway.discovery.DiscoveryLocatorProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.web.client.RestTemplate;
 
 @EnableScheduling
 @EnableDiscoveryClient
@@ -37,19 +39,25 @@ public class GatewayApplication {
                               args);
     }
 
-    @Scheduled(fixedRate = 15000)
-    public void watchServices() {
-        List<String> services = this.discoveryClient.getServices();
-        for (String s : services) {
-            List<ServiceInstance> instances = this.discoveryClient.getInstances(s);
-            for (ServiceInstance si : instances) {
-                log.info("Service: " + si.getServiceId());
-                log.info("Metadata:");
-                for (String key : si.getMetadata().keySet()) {
-                    log.info("\tkey:" + key +
-                                     " - value: " + si.getMetadata().get(key));
-                }
-            }
-        }
+    @LoadBalanced
+    @Bean
+    RestTemplate restTemplate() {
+        return new RestTemplate();
     }
+
+//    @Scheduled(fixedRate = 15000)
+//    public void watchServices() {
+//        List<String> services = this.discoveryClient.getServices();
+//        for (String s : services) {
+//            List<ServiceInstance> instances = this.discoveryClient.getInstances(s);
+//            for (ServiceInstance si : instances) {
+//                log.info("Service: " + si.getServiceId());
+//                log.info("Metadata:");
+//                for (String key : si.getMetadata().keySet()) {
+//                    log.info("\tkey:" + key +
+//                                     " - value: " + si.getMetadata().get(key));
+//                }
+//            }
+//        }
+//    }
 }

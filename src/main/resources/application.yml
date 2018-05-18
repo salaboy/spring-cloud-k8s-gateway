@@ -5,6 +5,7 @@ spring:
       discovery:
         locator:
           enabled: true
+          url-expression: "http://"
 server.port: 8080
 logging:
   level:
