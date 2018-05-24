@@ -45,19 +45,4 @@ public class GatewayApplication {
         return new RestTemplate();
     }
 
-//    @Scheduled(fixedRate = 15000)
-//    public void watchServices() {
-//        List<String> services = this.discoveryClient.getServices();
-//        for (String s : services) {
-//            List<ServiceInstance> instances = this.discoveryClient.getInstances(s);
-//            for (ServiceInstance si : instances) {
-//                log.info("Service: " + si.getServiceId());
-//                log.info("Metadata:");
-//                for (String key : si.getMetadata().keySet()) {
-//                    log.info("\tkey:" + key +
-//                                     " - value: " + si.getMetadata().get(key));
-//                }
-//            }
-//        }
-//    }
 }
