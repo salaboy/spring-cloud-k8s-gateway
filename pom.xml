@@ -7,6 +7,7 @@
   <artifactId>spring-cloud-k8s-gateway</artifactId>
   <version>1.0-SNAPSHOT</version>
   <name>Spring Cloud Kubernetes Examples :: Gateway</name>
+
   <properties>
     <java.version>1.8</java.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -16,6 +17,7 @@
     <spring-cloud.version>Finchley.SR1</spring-cloud.version>
     <spring.cloud.k8s.version>0.3.0.RELEASE</spring.cloud.k8s.version>
   </properties>
+
   <dependencyManagement>
 		<dependencies>
       <dependency>
@@ -41,35 +43,29 @@
       </dependency>
 		</dependencies>
 	</dependencyManagement>
+
   <dependencies>
     <dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-    <dependency>
       <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
       <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
     </dependency>
     <dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-gateway</artifactId>
-		</dependency>
-    <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-kubernetes-discovery</artifactId>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
     </dependency>
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-kubernetes-ribbon</artifactId>
+      <artifactId>spring-cloud-kubernetes-discovery</artifactId>
     </dependency>
 
   </dependencies>
   <build>
     <plugins>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -82,6 +78,7 @@
           <optimize>true</optimize>
         </configuration>
       </plugin>
+
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
@@ -93,6 +90,7 @@
           </execution>
         </executions>
       </plugin>
+
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-deploy-plugin</artifactId>
@@ -100,6 +98,7 @@
       </plugin>
     </plugins>
   </build>
+
   <repositories>
     <repository>
       <id>spring-milestones</id>
@@ -109,6 +108,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
+
     <repository>
       <id>spring-snapshots</id>
       <name>Spring Snapshots</name>
@@ -117,6 +117,7 @@
         <enabled>false</enabled>
       </releases>
     </repository>
+
     <repository>
       <id>alfresco-snapshots</id>
       <name>Alfresco Snapshots</name>
@@ -126,4 +127,5 @@
       </releases>
     </repository>
   </repositories>
+
 </project>
